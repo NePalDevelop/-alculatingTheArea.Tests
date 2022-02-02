@@ -85,6 +85,29 @@ namespace СalculatingTheArea.Tests
             Assert.IsNotNull(FigureFactory.CreateTriangle(side1, side2, side3));
 
         }
+        
+        [TestMethod()]
+        public void IsRectangular_6and8and10_return_true()
+        {
+            double side1 = 6.0;
+            double side2 = 8.0;
+            double side3 = 10.0;
+
+            Triangle t = FigureFactory.CreateTriangle(side1, side2, side3);
+            Assert.IsTrue(t.IsRectangular());   
+        }
+
+        [TestMethod()]
+        public void IsRectangular_7and8and9_return_false()
+        {
+            double side1 = 7.0;
+            double side2 = 8.0;
+            double side3 = 9.0;
+
+            Triangle t = FigureFactory.CreateTriangle(side1, side2, side3);
+            Assert.IsFalse(t.IsRectangular());
+
+        }
 
     }
 }

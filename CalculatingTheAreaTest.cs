@@ -38,6 +38,16 @@ namespace СalculatingTheArea.Tests
         }
 
         [TestMethod()]
+        public void CreateCircle_input_MoreThenMax_Radius_return_null()
+        {
+            double radius = FigureFactory.maxRadius + 1.0;
+
+            Assert.IsNull(FigureFactory.CreateCircle(radius));
+
+        }
+
+
+        [TestMethod()]
         public void GetAreaTriangle_3and4and5_return_6()
         {
             double side1 = 3.0;
@@ -58,6 +68,17 @@ namespace СalculatingTheArea.Tests
             double side1 = 3.0;
             double side2 = -4.0;
             double side3 = 5.0;
+
+            Assert.IsNull(FigureFactory.CreateTriangle(side1, side2, side3));
+
+        }
+
+        [TestMethod()]
+        public void CreateTriangle_input_MoreThenMax_side_return_null()
+        {
+            double side1 = FigureFactory.maxSide + 1;
+            double side2 = FigureFactory.maxSide - 1;
+            double side3 = FigureFactory.maxSide - 1;
 
             Assert.IsNull(FigureFactory.CreateTriangle(side1, side2, side3));
 
@@ -85,7 +106,7 @@ namespace СalculatingTheArea.Tests
             Assert.IsNotNull(FigureFactory.CreateTriangle(side1, side2, side3));
 
         }
-        
+
         [TestMethod()]
         public void IsRectangular_6and8and10_return_true()
         {
@@ -94,7 +115,7 @@ namespace СalculatingTheArea.Tests
             double side3 = 10.0;
 
             Triangle t = FigureFactory.CreateTriangle(side1, side2, side3);
-            Assert.IsTrue(t.IsRectangular());   
+            Assert.IsTrue(t.IsRectangular());
         }
 
         [TestMethod()]
